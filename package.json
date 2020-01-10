@@ -1,0 +1,31 @@
+{
+  "name": "jjj-exchange",
+  "version": "1.0.0",
+  "description": "JJJ Exchange",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryuheimat/jjj-exchange.git"
+  },
+  "keywords": [
+    "exchange",
+    "crypto"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryuheimat/jjj-exchange/issues"
+  },
+  "homepage": "https://github.com/ryuheimat/jjj-exchange#readme",
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
