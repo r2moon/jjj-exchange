@@ -27,6 +27,10 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.19.2",
+    "bitcoinjs-lib": "^5.1.7",
+    "ethereumjs-tx": "^2.1.2",
+    "express": "^4.17.1",
+    "web3": "^1.2.6"
   }
 }
