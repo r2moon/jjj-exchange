@@ -6,7 +6,7 @@ import {
 } from "bitcoinjs-lib/types";
 import axios, { AxiosInstance } from "axios";
 
-import { IWallet } from "../../types";
+import { IWallet, Object } from "../../types";
 
 const SATOSHI = 100000000;
 const toSatoshi = (value: number) => {
@@ -187,5 +187,22 @@ export default class Bitcoin extends IWallet {
       return 0;
     }
     return fromSatoshi(this._addressInfo.final_balance);
+  }
+
+  public async getTx(txId: string): Promise<Object> {
+    const response = await this._axiosInstance.get(`/txs/${txId}`);
+    console.log(response.data);
+    return response.data;
+  }
+
+  public getSentAmountForRecipient(tx: Object, recipient: string): string {
+    const outputs = tx["outputs"] as [Object];
+    for (let output of outputs) {
+      const addresses = output["addresses"] as [string];
+      if (addresses.includes(recipient)) {
+        return output["value"].toString();
+      }
+    }
+    return "";
   }
 }

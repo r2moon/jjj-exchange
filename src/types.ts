@@ -1,4 +1,7 @@
 
+// general types
+export type Object = {[key: string]: object};
+
 export interface ExchangeRequestParams {
   pair: string; // exchange coin. ex. btc_eth
   amount: number; // exchange amount
@@ -30,4 +33,14 @@ export abstract class IWallet {
    * get balance in string
    */
   abstract get balance(): string | number;
+
+  /**
+   * get transaction by txId
+   */
+  abstract async getTx(txId: string): Promise<Object>;
+
+  /**
+   * get sent amount of the tx by recipient
+   */
+  abstract getSentAmountForRecipient(tx: Object, recipient: string): string;
 }
